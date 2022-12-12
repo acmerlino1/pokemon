@@ -1,6 +1,6 @@
 import useGetAllPokemon from "../queries/useGetAllPokemon";
 import { Spinner, SimpleGrid, Text, Button, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import PokemonModal from "./PokemonModal";
 
 const PokemonList = () => {
@@ -16,7 +16,7 @@ const PokemonList = () => {
   };
 
   if (isLoading) {
-    return <Spinner size="xl" />;
+    return <Spinner size="xl" data-testid="loading-spinner" />;
   }
 
   return (

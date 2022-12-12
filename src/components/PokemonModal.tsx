@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Modal,
   ModalOverlay,
@@ -9,11 +10,11 @@ import {
   Button,
   Image,
   Box,
-  SkeletonText,
   Badge,
   Flex,
+  Spinner,
 } from "@chakra-ui/react";
-import useGetPokemonByName from "../queries/useGetPokemonById";
+import useGetPokemonByName from "../queries/useGetPokemonByName";
 
 interface PokemonModalProps {
   name: string;
@@ -36,7 +37,7 @@ const PokemonModal = ({ name, isOpen, onClose }: PokemonModalProps) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} data-testid="pokemon-modal">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textTransform="capitalize">{name}</ModalHeader>
@@ -44,14 +45,9 @@ const PokemonModal = ({ name, isOpen, onClose }: PokemonModalProps) => {
           <ModalBody>
             <Box bg="white">
               {isLoading ? (
-                <>
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={4}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                </>
+                <Flex justifyContent="center">
+                  <Spinner size="xl" data-testid="loading-spinner" />
+                </Flex>
               ) : (
                 <Flex
                   maxW="sm"
