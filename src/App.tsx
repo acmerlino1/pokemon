@@ -1,4 +1,3 @@
-import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ChakraProvider } from "@chakra-ui/react";
 import PokemonList from "./components/PokemonList";

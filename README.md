@@ -4,11 +4,11 @@ An app that queries the [Pokemon API](https://pokeapi.co/) to return a list of g
 
 ## Requirements
 
-● The app should start and bring back a list of the Generation 1 Pokemon.
-● The user should be able to click each Pokemon in order to see a card with more
-information for that Pokemon.
-● The user should be able to close the selected Pokemon card and select another
-Pokemon.
+- The app should start and bring back a list of the Generation 1 Pokemon.
+- The user should be able to click each Pokemon in order to see a card with more
+  information for that Pokemon.
+- The user should be able to close the selected Pokemon card and select another
+  Pokemon.
 
 ## Available Scripts
 

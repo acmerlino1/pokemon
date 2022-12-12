@@ -1,5 +1,5 @@
 import useGetAllPokemon from "../queries/useGetAllPokemon";
-import { Spinner, SimpleGrid, Text, Button } from "@chakra-ui/react";
+import { Spinner, SimpleGrid, Text, Button, Flex } from "@chakra-ui/react";
 import { useState } from "react";
 import PokemonModal from "./PokemonModal";
 
@@ -21,7 +21,9 @@ const PokemonList = () => {
 
   return (
     <>
-      <Text fontSize="4xl">Select a Pokemon to learn more about it!</Text>
+      <Flex justifyContent="center">
+        <Text fontSize="4xl">Select a Pokemon to learn more about it!</Text>
+      </Flex>
       <SimpleGrid minChildWidth="140px" spacing="40px" p={20}>
         {pokemons?.map((pokemon) => (
           <Button
