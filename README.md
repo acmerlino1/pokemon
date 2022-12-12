@@ -10,6 +10,12 @@ An app that queries the [Pokemon API](https://pokeapi.co/) to return a list of g
 - The user should be able to close the selected Pokemon card and select another
   Pokemon.
 
+## Notes
+
+- Used [chakra ui](https://chakra-ui.com/) for component library
+- react query for data fetching
+- MSW to mock endpoints in tests
+
 ## Available Scripts
 
 In the project directory, you can run:
