@@ -1,12 +1,15 @@
-import { useQuery } from "react-query";
+import { useQuery, UseQueryResult } from "react-query";
+import { Pokemon } from "../types/pokemon";
 
-const getPokemonById = (id: string) => {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+const getPokemonByName = (name: string): Promise<Pokemon> => {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
     .then((response) => response.json())
     .catch((e) => {
       throw new Error("Error fetching Pokemon by id", e);
     });
 };
 
-const useGetPokemonById = (id: string) =>
-  useQuery(["pokemon", id], () => getPokemonById(id));
+const useGetPokemonByName = (name: string): UseQueryResult<Pokemon, unknown> =>
+  useQuery(["pokemon", name], () => getPokemonByName(name));
+
+export default useGetPokemonByName;

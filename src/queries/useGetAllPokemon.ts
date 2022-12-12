@@ -1,14 +1,20 @@
-import { useQuery } from "react-query";
+import { useQuery, UseQueryResult } from "react-query";
+import { PokemonList } from "../types/pokemon";
 
-const getAllPokemon = () => {
-  fetch("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20")
+const getAllPokemon = (): Promise<PokemonList> => {
+  return fetch("https://pokeapi.co/api/v2/generation/1", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => response.json())
     .catch((e) => {
       throw new Error("Error fetching all pokemon list", e);
     });
 };
 
-const useGetAllPokemon = () =>
+const useGetAllPokemon = (): UseQueryResult<PokemonList, unknown> =>
   useQuery(["pokemon", "all"], () => getAllPokemon());
 
 export default useGetAllPokemon;
